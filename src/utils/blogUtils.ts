@@ -20,17 +20,23 @@ export const stripHtml = (html: string): string => {
 };
 
 export const getImageUrl = (post: BlogPost): string => {
-  // Check if post has medium_image array and it's not empty
-  if (post.medium_image && post.medium_image.length > 0) {
-    return post.medium_image[0].url;
-  }
+  let imageUrl: string | null = null;
 
-  // Check if post has small_image array and it's not empty
+  // Prioritas: small_image untuk ukuran yang lebih kecil dan loading yang lebih cepat
   if (post.small_image && post.small_image.length > 0) {
-    return post.small_image[0].url;
+    imageUrl = post.small_image[0].url;
+  }
+  // Fallback ke medium_image jika small_image tidak tersedia
+  else if (post.medium_image && post.medium_image.length > 0) {
+    imageUrl = post.medium_image[0].url;
   }
 
-  // Fallback to random image
+  // Jika ada URL gambar dari API, gunakan image proxy
+  if (imageUrl) {
+    return `/api/image-proxy?url=${encodeURIComponent(imageUrl)}`;
+  }
+
+  // Fallback ke picsum jika tidak ada gambar dari API
   return `https://picsum.photos/400/300?random=${post.id}`;
 };
 

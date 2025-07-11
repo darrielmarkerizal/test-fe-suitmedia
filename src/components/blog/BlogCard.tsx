@@ -19,15 +19,18 @@ const BlogCard = ({ post }: BlogCardProps) => {
     <article className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-200">
         <Image
-          src={fallbackImage}
+          src={imageUrl}
           alt={post.title}
           fill
           className="object-cover hover:scale-105 transition-transform duration-300"
           loading="lazy"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           onError={(e) => {
-            console.log("Image failed to load:", imageUrl);
-            e.currentTarget.src = fallbackImage;
+            console.log("Image failed to load, using fallback:", imageUrl);
+            const target = e.currentTarget as HTMLImageElement;
+            if (target.src !== fallbackImage) {
+              target.src = fallbackImage;
+            }
           }}
         />
       </div>

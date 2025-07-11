@@ -10,9 +10,9 @@ export const useBlogFilters = () => {
   // Get current filters from URL
   const getCurrentFilters = useCallback(
     (): BlogGridFilters => ({
-      page: parseInt(searchParams.get("page") || "1"),
-      perPage: parseInt(searchParams.get("per_page") || "10"),
-      sort: (searchParams.get("sort") as "newest" | "oldest") || "newest",
+      page: parseInt(searchParams?.get("page") || "1"),
+      perPage: parseInt(searchParams?.get("per_page") || "10"),
+      sort: (searchParams?.get("sort") as "newest" | "oldest") || "newest",
     }),
     [searchParams]
   );
@@ -22,6 +22,8 @@ export const useBlogFilters = () => {
   // Update URL without page reload
   const updateURL = useCallback(
     (newParams: Partial<BlogGridFilters>) => {
+      if (!pathname || !searchParams) return; // Add null checks
+
       const current = new URLSearchParams(Array.from(searchParams.entries()));
 
       if (newParams.page !== undefined) {
