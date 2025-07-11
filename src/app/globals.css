@@ -26,8 +26,24 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
 }
 
+/* Hero Banner Animations */
 @keyframes fade-in-up {
   0% {
     opacity: 0;
@@ -48,14 +64,17 @@ body {
   opacity: 0;
 }
 
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
+/* Performance optimizations */
 .will-change-transform {
   will-change: transform;
 }
 
+/* Ensure no unwanted spaces */
 * {
   box-sizing: border-box;
 }
