@@ -24,7 +24,6 @@ const HeroBanner = ({
         const rect = bannerRef.current.getBoundingClientRect();
         const scrolled = window.scrollY;
 
-        // Only apply parallax when banner is visible
         if (rect.bottom >= 0) {
           setScrollY(scrolled);
         }
@@ -41,21 +40,18 @@ const HeroBanner = ({
       className="relative overflow-hidden z-10"
       style={{ height }}
     >
-      {/* Background Image with Parallax */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           transform: `translate3d(0, ${scrollY * 0.5}px, 0)`,
-          height: "120%", // Make image taller for parallax effect
+          height: "120%",
           top: "-10%",
         }}
       >
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      {/* Content with Parallax */}
       <div
         className="relative z-20 flex items-center justify-center h-full will-change-transform"
         style={{
@@ -72,7 +68,6 @@ const HeroBanner = ({
         </div>
       </div>
 
-      {/* Diagonal Cut at Bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-30">
         <svg
           viewBox="0 0 1200 120"

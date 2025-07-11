@@ -14,10 +14,8 @@ const Navbar = () => {
     const controlNavbar = () => {
       if (typeof window !== "undefined") {
         if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          // Scrolling down & scrolled more than 100px
           setIsVisible(false);
         } else {
-          // Scrolling up
           setIsVisible(true);
         }
         setLastScrollY(window.scrollY);
@@ -59,7 +57,6 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <Image
@@ -73,7 +70,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Navigation Menu */}
         <div className="hidden md:flex items-center space-x-8">
           {navigationItems.map((item) => (
             <Link
@@ -84,7 +80,6 @@ const Navbar = () => {
               }`}
             >
               {item.name}
-              {/* Active indicator with smooth animation */}
               {isActive(item.href) && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left transition-transform duration-300"></span>
               )}
@@ -92,7 +87,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile menu button */}
         <div className="md:hidden">
           <button className="text-white hover:text-orange-100 focus:outline-none">
             <svg
