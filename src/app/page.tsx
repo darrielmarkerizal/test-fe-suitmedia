@@ -10,7 +10,8 @@ export default function Home() {
         height="100vh"
       />
 
-      <div className="bg-white py-16">
+      {/* Content Section - No top padding needed */}
+      <div className="bg-white py-16 relative z-10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -22,6 +23,7 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Demo content */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Array.from({ length: 9 }, (_, i) => (
               <div
@@ -44,7 +46,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-gray-100 py-16">
+      {/* Additional Content Section */}
+      <div className="bg-gray-100 py-16 relative z-10">
         <div className="container mx-auto px-6">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-800 mb-8">
