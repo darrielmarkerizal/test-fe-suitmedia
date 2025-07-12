@@ -27,7 +27,7 @@ const BlogControls = ({
         <div className="flex items-center gap-2">
           <label
             htmlFor="per-page"
-            className="text-gray-600 text-sm whitespace-nowrap"
+            className="text-gray-900 text-sm whitespace-nowrap font-medium"
           >
             Show per page:
           </label>
@@ -35,7 +35,7 @@ const BlogControls = ({
             id="per-page"
             value={itemsPerPage}
             onChange={(e) => onPerPageChange(parseInt(e.target.value))}
-            className="border border-gray-300 rounded px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="border border-gray-300 rounded-full px-3 py-1 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
           >
             <option value="10">10</option>
             <option value="20">20</option>
@@ -46,7 +46,7 @@ const BlogControls = ({
         <div className="flex items-center gap-2">
           <label
             htmlFor="sort"
-            className="text-gray-600 text-sm whitespace-nowrap"
+            className="text-gray-900 text-sm whitespace-nowrap font-medium"
           >
             Sort by:
           </label>
@@ -56,7 +56,7 @@ const BlogControls = ({
             onChange={(e) =>
               onSortChange(e.target.value as "newest" | "oldest")
             }
-            className="border border-gray-300 rounded px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+            className="border border-gray-300 rounded-full px-3 py-1 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
           >
             <option value="newest">Newest</option>
             <option value="oldest">Oldest</option>
