@@ -5,20 +5,18 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "picsum.photos",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "assets.suitdev.com",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "suitmedia.static-assets.id",
-        port: "",
-        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
       },
     ],
   },
