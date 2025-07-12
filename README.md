@@ -1,99 +1,164 @@
-# Suitmedia Frontend Developer Intern Test - Blog Ideas Page
+# Suitmedia Frontend Developer Intern Test
 
-**Candidate:** Darriel Markerizal  
+**Nama:** Darriel Markerizal  
 **Program:** Magang Berdampak 2025 - Frontend Developer Intern  
-**Company:** Suitmedia  
-**Test Code:** NEmU5xR2yhE2
+**Perusahaan:** Suitmedia
 
-## 📋 Project Overview
+## 🚀 Demo
 
-This project is a blog ideas page implementation built as part of the Suitmedia Frontend Developer Intern recruitment test. The application displays a list of blog posts with sorting, pagination, and responsive design features.
+**Live Demo:** [https://project-test-darriel-markerizal.vercel.app/](https://project-test-darriel-markerizal.vercel.app/)
 
-## 🚀 Live Demo
+## 📋 Deskripsi Project
 
-[Deployment Link - To be added after deployment]
+Project ini merupakan implementasi test untuk posisi Frontend Developer Intern di Suitmedia. Website ini menampilkan halaman Ideas dengan fitur-fitur yang telah ditentukan dalam requirement test.
 
-## 📁 Repository
+## ✨ Fitur yang Diimplementasikan
 
-[GitLab Repository Link - To be added]
+### 1. Header
 
-## ✨ Features Implemented
+- ✅ **Fixed position** dengan hide/show behavior saat scroll
+- ✅ **Transparent background** saat scroll ke bawah
+- ✅ **Active state menu** sesuai halaman yang dikunjungi
+- ✅ **Responsive design** untuk mobile dan desktop
 
-### 1. Header Navigation
+### 2. Banner
 
-- ✅ Fixed position header with auto-hide on scroll down
-- ✅ Auto-show on scroll up with transparent background
-- ✅ Active state highlighting for current page
-- ✅ Responsive design with mobile menu support
+- ✅ **Hero banner** dengan background image
+- ✅ **Area miring** pada bagian bawah banner menggunakan SVG
+- ✅ **Parallax effect** pada image dan text saat scroll
+- ✅ **Responsive** untuk berbagai ukuran layar
 
-### 2. Hero Banner
+### 3. List Post
 
-- ✅ Dynamic banner image that can be updated via CMS
-- ✅ Diagonal bottom edge design using SVG
-- ✅ Parallax scrolling effect between image and text
-- ✅ Responsive typography and layout
-
-### 3. Blog Post List
-
-- ✅ Sort functionality (newest/oldest)
-- ✅ Items per page selection (10, 20, 50)
-- ✅ Pagination with page navigation
-- ✅ URL state persistence (sort, pagination, items per page)
-- ✅ Consistent image aspect ratio (4:3)
-- ✅ Lazy loading for images
-- ✅ Title truncation with 3-line limit and ellipsis
-- ✅ Responsive grid layout (1-4 columns based on screen size)
+- ✅ **Sorting** berdasarkan terbaru dan terlama
+- ✅ **Show per page** dengan pilihan [10, 20, 50]
+- ✅ **Pagination** dengan navigasi halaman
+- ✅ **State persistence** - tidak reset saat refresh halaman
+- ✅ **Consistent thumbnail ratio** (4:3) di semua cards
+- ✅ **Lazy loading** pada images
+- ✅ **Title limitation** maksimal 3 baris dengan ellipsis
+- ✅ **Status indicator** showing current items range
 
 ### 4. API Integration
 
-- ✅ Proxy configuration for Suitmedia backend API
-- ✅ Dynamic data fetching with proper error handling
-- ✅ Image proxy for handling CORS issues
-- ✅ Loading states and error boundaries
+- ✅ **Proxy configuration** untuk mengakses Suitmedia API
+- ✅ **Dynamic data fetching** dari `https://suitmedia-backend.suitdev.com/api/ideas`
+- ✅ **URL parameters** handling untuk pagination, sorting, dan filtering
+- ✅ **Image proxy** untuk mengatasi CORS issues
+- ✅ **Error handling** dan loading states
 
 ## 🛠 Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 14.2.30 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **HTTP Client:** Axios
+- **Deployment:** Vercel
 - **Image Optimization:** Next.js Image component
-- **State Management:** React Hooks (useState, useCallback)
-- **URL State:** Next.js navigation hooks
 
-## 📦 Installation & Setup
+## 📁 Struktur Project
+
+```
+src/
+├── app/                    # App Router pages
+│   ├── api/               # API routes (proxy)
+│   ├── ideas/             # Ideas page
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── blog/             # Blog-related components
+│   ├── BlogGrid.tsx      # Main blog grid
+│   ├── HeroBanner.tsx    # Hero banner component
+│   └── Navbar.tsx        # Navigation component
+├── hooks/                # Custom React hooks
+├── services/             # API services
+├── types/                # TypeScript type definitions
+└── utils/                # Utility functions
+```
+
+## 🔧 Installation & Setup
+
+1. **Clone repository**
 
 ```bash
-# Clone the repository
 git clone [repository-url]
 cd test-suit
+```
 
-# Install dependencies
+2. **Install dependencies**
+
+```bash
 npm install
+```
 
-# Run development server
+3. **Run development server**
+
+```bash
 npm run dev
+```
 
-# Build for production
+4. **Build for production**
+
+```bash
 npm run build
-
-# Start production server
-npm start
 ```
 
 ## 🌐 API Configuration
 
-The application uses Suitmedia's backend API with the following configuration:
+Project ini menggunakan proxy configuration untuk mengakses Suitmedia API:
 
-- **Base URL:** `https://suitmedia-backend.suitdev.com/api/ideas`
-- **Proxy Route:** `/api/proxy/*` → `https://suitmedia-backend.suitdev.com/api/*`
-- **Image Proxy:** `/api/image-proxy` for handling image CORS issues
+```javascript
+// next.config.mjs
+async rewrites() {
+  return [
+    {
+      source: "/api/proxy/:path*",
+      destination: "https://suitmedia-backend.suitdev.com/api/:path*",
+    },
+  ];
+}
+```
 
-### API Parameters:
+**API Endpoint:** `https://suitmedia-backend.suitdev.com/api/ideas`
+
+**Parameters:**
 
 - `page[number]`: Current page number
 - `page[size]`: Items per page (10, 20, 50)
 - `append[]`: Include small_image and medium_image
-- `sort`: `published_at` (oldest) or `-published_at` (newest)
+- `sort`: published_at atau -published_at
 
-## 📁 Project Structure
+## 📱 Responsive Design
+
+Website ini fully responsive dan telah dioptimasi untuk:
+
+- ✅ Desktop (1024px+)
+- ✅ Tablet (768px - 1023px)
+- ✅ Mobile (< 768px)
+
+## 🎯 Key Features Implemented
+
+1. **URL State Management** - Filter states tersimpan di URL
+2. **Infinite Scroll Alternative** - Pagination dengan navigasi yang intuitif
+3. **Image Optimization** - Lazy loading dan responsive images
+4. **Performance Optimization** - Code splitting dan optimized builds
+5. **Error Handling** - Graceful error handling dengan retry functionality
+6. **Loading States** - Smooth loading indicators
+
+## 📊 Performance Features
+
+- ✅ **Lazy loading** untuk images
+- ✅ **Code splitting** dengan Next.js
+- ✅ **Optimized images** dengan Next.js Image component
+- ✅ **Caching** untuk API responses
+- ✅ **Minimal bundle size** dengan tree shaking
+
+## 🔗 Links
+
+- **Live Demo:** [https://project-test-darriel-markerizal.vercel.app/](https://project-test-darriel-markerizal.vercel.app/)
+- **Source Code:** [Repository Link]
+
+---
+
+**Dibuat oleh:** Darriel Markerizal  
+**Untuk:** Suitmedia - Magang Berdampak 2025  
+**Tanggal:** 2025

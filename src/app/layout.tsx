@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Suitmed",
-  description: "Suitmed website",
+  title: "Suitmedia",
+  description: "Suitmedia website",
 };
 
 export default function RootLayout({
