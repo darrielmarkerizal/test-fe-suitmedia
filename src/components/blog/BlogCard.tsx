@@ -40,13 +40,9 @@ const BlogCard = ({ post }: BlogCardProps) => {
           {formatDate(post.published_at)}
         </time>
 
-        <h3 className="text-gray-800 font-semibold mt-2 mb-3 leading-tight">
-          <span className="line-clamp-3 text-sm">{post.title}</span>
+        <h3 className="text-gray-800 font-semibold mt-2 leading-tight line-clamp-3">
+          {post.title}
         </h3>
-
-        <p className="text-gray-600 text-xs line-clamp-2">
-          {stripHtml(post.content).slice(0, 100)}...
-        </p>
       </div>
     </article>
   );
